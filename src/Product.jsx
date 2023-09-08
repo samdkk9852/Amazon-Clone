@@ -5,7 +5,7 @@ const Product = ({id, title, price, rating,image}) => {
 
     const [{basket}, dispatch] = useStateValue();
 
-    console.log("this is the basket -->", basket);
+    // console.log("this is the basket -->", basket);
 
     const addtoBasket =() =>{
         // dispatch the item to the data layer
