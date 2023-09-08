@@ -3,3 +3,8 @@ How to add dynamic rating(star) in every product and How does "{Array(rating).fi
 
 =========Subtotal ==========
 install react-currency-format
+
+========Context API/ Redux======
+the data layar -> React Context API / REDUX.
+Reducer actually pushes the data to the Data layer and later pull to the different component according to the use.
+Whenever add to basket is pressed action takes place in reducer.
