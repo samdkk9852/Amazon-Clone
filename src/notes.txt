@@ -1,0 +1,5 @@
+How to add dynamic rating(star) in every product and How does "{Array(rating).fill().map((_, i) =>(<p>star</p>))}" this works Explain.?
+<Switch> tag used in Browser Router. Explain the working?
+
+=========Subtotal ==========
+install react-currency-format
