@@ -1,22 +1,43 @@
 import React, { useState } from 'react'
-import Amazon_Logo from "./image/Amazon_Logo.png"
 import "./Login.css"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { database } from './firebase'
+import { createUserWithEmailAndPassword } from "firebase/auth"
+import { signInWithEmailAndPassword } from 'firebase/auth'
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const history = useNavigate();
+
     const signIn =(e)=>{
         e.preventDefault()
-        console.log(email);
-        console.log(password);
+
+        signInWithEmailAndPassword(database, email, password)
+        .then((data)=>{
+            history("/")
+        })
+        .catch((error)=>{
+            alert(error.message)
+        })
         // link this with firebase
     }
 
     const register =(e) =>{
         e.preventDefault()
-        console.log("register");
+
+            createUserWithEmailAndPassword(database,email, password)
+            .then((data)=>{
+                // it succesfully create a new user with and email & password
+                console.log(data);
+                if(data){
+                    history("/")
+                }
+            })
+            .catch((error)=>{
+                alert(error.message)
+            })
         // link with firebase
     }
 
