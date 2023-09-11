@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import "./Login.css"
 import { Link, useNavigate } from 'react-router-dom'
-import { database } from './firebase'
+// import { database } from './firebase'
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import { signInWithEmailAndPassword } from 'firebase/auth'
+import { auth } from "./firebase" 
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -14,7 +15,7 @@ const Login = () => {
     const signIn =(e)=>{
         e.preventDefault()
 
-        signInWithEmailAndPassword(database, email, password)
+        signInWithEmailAndPassword(auth, email, password)
         .then((data)=>{
             history("/")
         })
@@ -27,7 +28,7 @@ const Login = () => {
     const register =(e) =>{
         e.preventDefault()
 
-            createUserWithEmailAndPassword(database,email, password)
+            createUserWithEmailAndPassword(auth, email, password)
             .then((data)=>{
                 // it succesfully create a new user with and email & password
                 console.log(data);
